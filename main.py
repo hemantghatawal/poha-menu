@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import data
 
 app = FastAPI(
     title="Poha is Love, Here are some variety for you to taste.",
@@ -9,3 +10,8 @@ app = FastAPI(
 @app.get("/")
 def root():
     return {"message": "Welcome to the online Poha Store API"}
+
+
+@app.get("/menu")
+def menu():
+    return data.pohadata
