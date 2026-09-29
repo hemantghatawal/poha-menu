@@ -22,7 +22,7 @@ def get_menu(category: str | None = Query(None, description="Filter by poha cate
 
     return MenuResponse(count=len(pohadata), items=pohadata)
 
-@app.get("/menu/{id}")
+@app.get("/menu/{id}", response_model=MenuItem)
 def get_menu_dish(id: int):
     dish = [item for item in pohadata if item["id"] == id]
     if not dish:
